@@ -1,11 +1,18 @@
 import React, { useState } from "react";
 
-function ListingCard({listItem}) {
+function ListingCard({ listItem, onHandleDeleteListing }) {
 
   const [liked, setLiked] = useState(false)
 
   function onStarClick() {
     setLiked(!liked)
+  }
+
+  function handleDeleteListing(){
+    fetch(`http://127.0.0.1:6001/listings/${listItem.id}`, {
+      method: "DELETE"
+     })
+    onHandleDeleteListing(listItem.id)
   }
 
   return (
@@ -22,7 +29,7 @@ function ListingCard({listItem}) {
         )}
         <strong>{listItem.description}</strong>
         <span> · {listItem.location}</span>
-        <button className="emoji-button delete">🗑</button>
+        <button className="emoji-button delete" onClick={handleDeleteListing}>🗑</button>
       </div>
     </li>
   );

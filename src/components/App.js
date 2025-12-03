@@ -13,10 +13,15 @@ function App() {
   }, [])
 
 
+  function onHandleDeleteListing(id){
+      const updatedListings = listings.filter(listing => listing.id !==id)
+      setListings(updatedListings)
+    }
+  
   return (
     <div className="app">
       <Header />
-      <ListingsContainer listings={listings}/>
+      <ListingsContainer listings={listings} onHandleDeleteListing={onHandleDeleteListing}/>
     </div>
   );
 }
