@@ -1,11 +1,11 @@
 import React from "react";
 
-function ListingCard() {
+function ListingCard({listItem}) {
   return (
     <li className="card">
       <div className="image">
         <span className="price">$0</span>
-        <img src={"https://via.placeholder.com/300x300"} alt={"description"} />
+        <img src={listItem.image} alt={listItem.description} />
       </div>
       <div className="details">
         {true ? (
@@ -13,8 +13,8 @@ function ListingCard() {
         ) : (
           <button className="emoji-button favorite">☆</button>
         )}
-        <strong>{"description"}</strong>
-        <span> · {"location"}</span>
+        <strong>{listItem.description}</strong>
+        <span> · {listItem.location}</span>
         <button className="emoji-button delete">🗑</button>
       </div>
     </li>
