@@ -12,6 +12,7 @@ function App() {
     .then((data) => setListings(data))
   }, [])
 
+
   return (
     <div className="app">
       <Header />
