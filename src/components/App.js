@@ -3,7 +3,7 @@ import Header from "./Header";
 import ListingsContainer from "./ListingsContainer";
 
 function App() {
-
+  const [searchBy, setSearchBy] = useState("")
   const [listings, setListings] = useState([])
 
   useEffect(() => {
@@ -20,8 +20,12 @@ function App() {
   
   return (
     <div className="app">
-      <Header />
-      <ListingsContainer listings={listings} onHandleDeleteListing={onHandleDeleteListing}/>
+      <Header setSearchBy={setSearchBy}/>
+      <ListingsContainer 
+        listings={listings} 
+        searchBy={searchBy} 
+        onHandleDeleteListing={onHandleDeleteListing}
+      />
     </div>
   );
 }
